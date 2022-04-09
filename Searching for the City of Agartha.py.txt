@@ -1,0 +1,59 @@
+print("Welcome to SEARCHING FOR THE CITY OF AGARTHA")
+name = input("Enter your name: ").lower()
+age = int(input("Enter your age: "))
+health = 10
+
+if age >= 14:
+    print("You are old enough to play.")
+
+    want_to_play = input("Do you want to play? ").lower()
+    if want_to_play == "yes":
+        print(f"In this game,you are starting with {health}  health. Once you lose all your health, YOU LOST.")
+        print("               Let's play! ")
+
+        left_or_right = input("Make your first choice... Do you want to go left or right?: ").lower()
+        if left_or_right == "right":
+            ans = input("Nice, you followed the right path and reached a river. Do you swim across or go around (across/around)?: ").lower()
+
+            if ans == "around":
+                print("  You went around and safely reached the other side of the river.")
+            elif ans == "across":
+                print("  You managed to swim across the river but got bitten by a snake and lost 5 health.")
+                health -= 5
+
+            ans = input("You notice a house and a car. Where do you go to (house/car)?: ").lower()
+            if ans == "house":
+                print("  You go to the house and received 5 health.")
+                health += 5
+            elif ans == "car":
+                print("  It's a trap! You lost 5 health. ")
+                health -= 5
+                if health <= 0:
+                    print("You now have 0 health. GAME OVER! ")
+                    quit()
+
+                print("Now, you find a man cutting a tree with an axe and a bridge crossing to the other side of a lake")
+                ans = input("Do you want to talk to the man or cross the bridge (talk/cross)?: ")
+            if ans == "talk":
+                print(" You reached out to the man and he gave you a boat to cross to the other side of the lake. ")
+            elif ans == "cross":
+                print(" Oops, its a sinking bridge! You managed to cross but you lost 8 health. ")
+                health -= 8
+                if health <= 0:
+                    print("You now have 0 health. GAME OVER! ")
+                    quit()
+
+            ans = input("You have crossed the lake. Now you find a car parked and pathway. What will you take (car/pathway)?: ")
+            if ans == "car":
+                print(" The car is the way!")
+                print(" Congratulations! You have found the CITY OF AGARTHA.")
+                print(health)
+            if ans == "pathway":
+                print(" Wrong turn! GAME OVER")
+
+
+        else:
+            print("You fell down the wrong path. GAME OVER! ")
+
+    else:
+        print("Cya...")
